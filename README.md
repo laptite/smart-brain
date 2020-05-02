@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## PROJECT DESCRIPTION
+
+This face recognition app uses Clarifai to recognize one or more faces from an image url. When the user enters an image url, each face that is recognized gets outlined with a box. 
+
+The app is setup to run along a node server at [smart-brain-api](https://github.com/laptite/smart-brain-api). It connects to a postgres database using knex.js and includes basic authentication: register, login and signout.
+
 ## Available Scripts
 
 In the project directory, you can run:
