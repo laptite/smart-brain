@@ -23,7 +23,6 @@ class Register extends Component {
   }
 
   onSubmitRegister = () => {
-    console.log(this.state);
     fetch('http://localhost:3000/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -33,11 +32,14 @@ class Register extends Component {
         password: this.state.password
       })
     })
-      .then(response => response.json())
-      .then(user => {
+    .then(response => response.json())
+    .then(user => {
+      if(user.id) {
         this.props.loadUser(user);
         this.props.onRouteChange('home');
-      })
+      }
+    })
+    .catch(console.error);
   }
   render() {
     return(
