@@ -9,6 +9,8 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import './App.css';
 
+const API_PUBLIC_URL = "https://peaceful-ravine-56478.herokuapp.com/"
+
 const particlesOptions = {
   particles: {
     number: {
@@ -83,7 +85,7 @@ class App extends Component {
 
   onImageSubmit = () => {
     this.setState({ imageUrl: this.state.input })
-      fetch('http://localhost:3000/imageurl', {
+      fetch(`${API_PUBLIC_URL}/imageurl`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ input: this.state.input })
@@ -91,7 +93,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://localhost:3000/image', {
+          fetch(`${API_PUBLIC_URL}/image`, {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
